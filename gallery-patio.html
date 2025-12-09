@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patio Gallery - Grenga Development</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery-hero {
+            height: 40vh;
+            background-image: url('images/service-patio.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .gallery-hero h1 {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-family: 'Georgia Ref', Georgia, serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 4rem 0;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+        .empty-gallery {
+            text-align: center;
+            padding: 4rem;
+            color: var(--gray);
+        }
+        .empty-gallery i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-hero h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg" style="background: #1a1a1a !important;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Grenga Development Logo" class="brand-logo">
+                <span class="brand-name">GRENGA DEVELOPMENT</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link phone-link" href="tel:4013026909">
+                            <i class="fas fa-phone"></i> (401) 302-6909
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <div class="gallery-hero">
+        <h1>Patio Gallery</h1>
+    </div>
+
+    <!-- Gallery Content -->
+    <section class="py-5">
+        <div class="container">
+            <a href="index.html#services" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Services
+            </a>
+
+            <div class="gallery-grid">
+                <!-- Add images here like this:
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="images/gallery/patio-1.jpg" alt="Patio Project 1">
+                </div>
+                -->
+            </div>
+
+            <div class="empty-gallery">
+                <i class="fas fa-images"></i>
+                <h3>Gallery Coming Soon</h3>
+                <p>We're adding photos to showcase our patio projects. Check back soon!</p>
+                <a href="index.html#questionnaire" class="btn btn-primary mt-3">Get a Free Estimate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="prevImage()"><i class="fas fa-chevron-left"></i></span>
+        <img src="" alt="" id="lightbox-img">
+        <span class="lightbox-nav lightbox-next" onclick="nextImage()"><i class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4" style="background: #1a1a1a; color: white; text-align: center;">
+        <div class="container">
+            <p>&copy; 2024 Grenga Development. All Rights Reserved.</p>
+            <p><a href="tel:4013026909" style="color: var(--primary-color);">(401) 302-6909</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Lightbox functionality
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = galleryImages[index].src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentIndex].src;
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentIndex].src;
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+    </script>
+</body>
+</html>

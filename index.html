@@ -26,7 +26,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,9 +36,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="brand-name">GRENGA</span>
-                <span class="brand-divider"></span>
-                <span class="brand-subtitle">Development</span>
+                <img src="images/logo.png" alt="Grenga Development Logo" class="brand-logo">
+                <span class="brand-name">GRENGA DEVELOPMENT</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -55,12 +54,9 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
+                        <a class="nav-link" href="#questionnaire">Get Estimate</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
+                                        <li class="nav-item">
                         <a class="nav-link phone-link" href="tel:4013026909">
                             <i class="fas fa-phone"></i> (401) 302-6909
                         </a>
@@ -72,17 +68,18 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <video class="hero-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload="auto" poster="images/hero-poster.jpg" id="heroVideo">
+        <video class="hero-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload="metadata" poster="images/hero-poster.jpg" id="heroVideo">
             <source src="videos/hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="video-touch-layer" id="videoTouchLayer"></div>
         <div class="container h-100">
             <div class="row h-100 align-items-center">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <h1 class="hero-title">Grenga Development</h1>
-                    <h2 class="hero-subtitle">Professional Concrete Services in Glocester, Rhode Island</h2>
-                    <p class="hero-text">Quality craftsmanship, reliable service, and exceptional results for all your concrete needs.</p>
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <img src="images/logo.png" alt="Grenga Development Logo" class="hero-logo">
+                    <h1 class="hero-title">GRENGA DEVELOPMENT</h1>
+                    <h2 class="hero-subtitle">Professional Concrete Services Across Rhode Island</h2>
+                    <p class="hero-text">Leading the Industry in Design, Quality and Service</p>
                     <div class="hero-buttons">
                         <a href="#questionnaire" class="btn btn-primary btn-lg me-3">Get Free Estimate</a>
                         <a href="tel:4013026909" class="btn btn-outline-light btn-lg">
@@ -103,7 +100,7 @@
 
                 <!-- Progress Indicator -->
                 <div class="progress-indicator">
-                    <div class="progress-step active" data-step="1">
+                    <div class="progress-step" data-step="1">
                         <span class="step-number">1</span>
                     </div>
                     <div class="progress-line"></div>
@@ -126,41 +123,108 @@
 
                 <!-- Question Container -->
                 <div class="question-container">
+                    <!-- Step 0: Welcome/Start -->
+                    <div class="question-step active" data-step="0">
+                        <div class="welcome-step text-center">
+                            <i class="fas fa-hard-hat welcome-icon"></i>
+                            <h3 class="question-title">Let's Get Started!</h3>
+                            <p class="question-desc">Tell us about your project and we'll provide a personalized quote within 24 hours.</p>
+                            <button class="continue-btn start-btn" onclick="startQuestionnaire()">
+                                Start Your Project <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Step 1: Project Type -->
-                    <div class="question-step active" data-step="1">
+                    <div class="question-step" data-step="1">
                         <span class="step-badge">STEP 1</span>
                         <h3 class="question-title">What type of project are you interested in?</h3>
                         <p class="question-desc">Select the service that best fits your needs</p>
                         <div class="options-grid">
-                            <button class="option-btn" data-value="driveway">
-                                <i class="fas fa-road"></i>
-                                <span>Driveway</span>
+                            <button class="option-btn has-bg" data-value="driveway" style="background-image: url('images/service-driveway.jpg');">
+                                <span>DRIVEWAY</span>
                             </button>
-                            <button class="option-btn" data-value="patio">
-                                <i class="fas fa-border-all"></i>
-                                <span>Patio</span>
+                            <button class="option-btn has-bg" data-value="patio" style="background-image: url('images/service-patio.jpg');">
+                                <span>PATIO</span>
                             </button>
-                            <button class="option-btn" data-value="foundation">
-                                <i class="fas fa-home"></i>
-                                <span>Foundation</span>
+                            <button class="option-btn has-bg" data-value="walkway" style="background-image: url('images/service-walkway.jpg');">
+                                <span>WALKWAY</span>
                             </button>
-                            <button class="option-btn" data-value="sidewalk">
-                                <i class="fas fa-walking"></i>
-                                <span>Sidewalk</span>
+                            <button class="option-btn has-bg" data-value="retaining-wall" style="background-image: url('images/service-retaining-wall.jpg');">
+                                <span>RETAINING WALL</span>
                             </button>
-                            <button class="option-btn" data-value="retaining-wall">
-                                <i class="fas fa-layer-group"></i>
-                                <span>Retaining Wall</span>
+                            <button class="option-btn has-bg" data-value="foundation" style="background-image: url('images/service-foundation.jpg');">
+                                <span>FOUNDATION</span>
                             </button>
-                            <button class="option-btn" data-value="other" onclick="showOtherInput(this); event.stopPropagation();">
-                                <i class="fas fa-plus-circle"></i>
-                                <span>Other</span>
+                            <button class="option-btn has-bg" data-value="site-work" style="background-image: url('images/service-site-work.jpg'); background-position: center 73%;">
+                                <span>SITE WORK</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="excavation" style="background-image: url('images/service-excavation.jpg');">
+                                <span>EXCAVATION</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="snow-service" style="background-image: url('images/service-snow.jpg');">
+                                <span>SNOW SERVICE</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="other" onclick="showOtherInput(this); event.stopPropagation();" style="background-image: url('images/service-custom.jpg');">
+                                <span>CUSTOM</span>
                             </button>
                         </div>
                         <div class="other-input-container" style="display: none;">
                             <input type="text" id="other-project" class="form-input" placeholder="Describe your project...">
                             <button class="continue-btn" onclick="submitOther()" style="margin-top: 1rem;">
                                 Continue <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 1A: Driveway Material (conditional) -->
+                    <div class="question-step" data-step="1a">
+                        <span class="step-badge">STEP 2</span>
+                        <h3 class="question-title">What material would you like?</h3>
+                        <p class="question-desc">Select your preferred driveway material</p>
+                        <div class="options-grid options-2col">
+                            <button class="option-btn has-bg" data-value="asphalt" style="background-image: url('images/service-asphalt.jpg');">
+                                <span>ASPHALT</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="concrete" style="background-image: url('images/service-concrete.jpg');">
+                                <span>CONCRETE</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 1B: Concrete Finish (conditional) -->
+                    <div class="question-step" data-step="1b">
+                        <span class="step-badge">STEP 2</span>
+                        <h3 class="question-title">What finish would you like?</h3>
+                        <p class="question-desc">Select your preferred concrete finish</p>
+                        <div class="options-grid">
+                            <button class="option-btn has-bg" data-value="broom" style="background-image: url('images/finish-broom.jpg');">
+                                <span>BROOM FINISH</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="ashlar-slate" style="background-image: url('images/finish-ashlar-slate.jpg');">
+                                <span>ASHLAR SLATE</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="exposed" style="background-image: url('images/finish-exposed.jpg');">
+                                <span>EXPOSED AGGREGATE</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="slate" style="background-image: url('images/finish-slate.jpg');">
+                                <span>SLATE</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="random-rock" style="background-image: url('images/finish-random-rock.jpg');">
+                                <span>RANDOM ROCK</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="burn-finish" style="background-image: url('images/finish-burn.jpg');">
+                                <span>BURN FINISH</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="wood-grain" style="background-image: url('images/finish-wood-grain.jpg');">
+                                <span>WOOD GRAIN</span>
+                            </button>
+                            <button class="option-btn has-bg" data-value="custom-border" style="background-image: url('images/finish-custom-border.jpg');">
+                                <span>CUSTOM BORDER</span>
+                            </button>
+                            <button class="option-btn" data-value="unsure">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Not Sure</span>
                             </button>
                         </div>
                     </div>
@@ -297,37 +361,6 @@
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar py-4 bg-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 col-6 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                    <div class="trust-item">
-                        <i class="fas fa-certificate fa-2x mb-2 text-primary"></i>
-                        <h4>Licensed & Insured</h4>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="200">
-                    <div class="trust-item">
-                        <i class="fas fa-award fa-2x mb-2 text-primary"></i>
-                        <h4>Quality Guaranteed</h4>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="trust-item">
-                        <i class="fas fa-users fa-2x mb-2 text-primary"></i>
-                        <h4>Local Experts</h4>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="trust-item">
-                        <i class="fas fa-clock fa-2x mb-2 text-primary"></i>
-                        <h4>Fast Response</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Services Section -->
     <section id="services" class="services-section py-5">
@@ -337,66 +370,34 @@
                 <p class="section-subtitle">Professional Concrete Solutions</p>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-road"></i>
-                        </div>
-                        <h3>Driveways</h3>
-                        <p>Custom concrete driveways built to last. From simple slabs to decorative stamped concrete, we create the perfect entrance to your home.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-border-all"></i>
-                        </div>
-                        <h3>Patios</h3>
-                        <p>Beautiful concrete patios designed to extend your living space. Choose from stamped, stained, or brushed finishes.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Foundations</h3>
-                        <p>Solid concrete foundations for new construction, additions, and garage floors. Built to code and built to last.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-walking"></i>
-                        </div>
-                        <h3>Sidewalks</h3>
-                        <p>Professional sidewalk installation and repair. Improve curb appeal and safety with quality concrete walkways.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h3>Retaining Walls</h3>
-                        <p>Durable concrete retaining walls to prevent erosion and add structure to your landscape.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-stamp"></i>
-                        </div>
-                        <h3>Decorative Concrete</h3>
-                        <p>Stamped, stained, and exposed aggregate concrete to add style and character to any project.</p>
-                    </div>
-                </div>
+            <div class="services-grid" data-aos="fade-up">
+                <a href="gallery-driveway.html" class="service-card has-bg" style="background-image: url('images/service-driveway.jpg');">
+                    <span>DRIVEWAY</span>
+                </a>
+                <a href="gallery-patio.html" class="service-card has-bg" style="background-image: url('images/service-patio.jpg');">
+                    <span>PATIO</span>
+                </a>
+                <a href="gallery-walkway.html" class="service-card has-bg" style="background-image: url('images/service-walkway.jpg');">
+                    <span>WALKWAY</span>
+                </a>
+                <a href="gallery-retaining-wall.html" class="service-card has-bg" style="background-image: url('images/service-retaining-wall.jpg');">
+                    <span>RETAINING WALL</span>
+                </a>
+                <a href="gallery-foundation.html" class="service-card has-bg" style="background-image: url('images/service-foundation.jpg');">
+                    <span>FOUNDATION</span>
+                </a>
+                <a href="gallery-site-work.html" class="service-card has-bg" style="background-image: url('images/service-site-work.jpg'); background-position: center 73%;">
+                    <span>SITE WORK</span>
+                </a>
+                <a href="gallery-excavation.html" class="service-card has-bg" style="background-image: url('images/service-excavation.jpg');">
+                    <span>EXCAVATION</span>
+                </a>
+                <a href="gallery-snow.html" class="service-card has-bg" style="background-image: url('images/service-snow.jpg');">
+                    <span>SNOW SERVICE</span>
+                </a>
+                <a href="gallery-custom.html" class="service-card has-bg" style="background-image: url('images/service-custom.jpg');">
+                    <span>CUSTOM</span>
+                </a>
             </div>
         </div>
     </section>
@@ -439,48 +440,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section py-5">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">OUR WORK</h2>
-                <p class="section-subtitle">View Our Recent Projects</p>
-            </div>
-
-            <div class="row g-3">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="gallery-item">
-                        <img src="images/project-1.jpg" alt="Project 1" class="img-fluid rounded">
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="gallery-item">
-                        <img src="images/project-2.jpg" alt="Project 2" class="img-fluid rounded">
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="gallery-item">
-                        <img src="images/project-3.jpg" alt="Project 3" class="img-fluid rounded">
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="gallery-item">
-                        <img src="images/project-4.jpg" alt="Project 4" class="img-fluid rounded">
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="gallery-item">
-                        <img src="images/project-5.jpg" alt="Project 5" class="img-fluid rounded">
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="gallery-item">
-                        <img src="images/project-6.jpg" alt="Project 6" class="img-fluid rounded">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section py-5 bg-light">
@@ -504,7 +463,7 @@
                         <div class="contact-item mb-3">
                             <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
                             <h4>Service Area</h4>
-                            <p>Glocester, Rhode Island &amp; Surrounding Areas</p>
+                            <p>All of Rhode Island</p>
                         </div>
 
                         <div class="contact-item">
@@ -577,8 +536,8 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"Absolutely thrilled with our new patio! The team was professional, on time, and the quality of work exceeded our expectations. Highly recommend!"</p>
-                            <p class="review-author">— Michael T.</p>
+                            <p class="review-text">"Grenga Development poured our new driveway and it looks incredible! The stamped concrete finish is exactly what we wanted. Professional crew and great attention to detail."</p>
+                            <p class="review-author">— Anthony C.</p>
                         </div>
                         <div class="review-card">
                             <div class="review-stars">
@@ -588,8 +547,8 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"They transformed our backyard into an outdoor oasis. The deck is beautiful and built to last. Great communication throughout the entire project."</p>
-                            <p class="review-author">— Sarah M.</p>
+                            <p class="review-text">"They did all our site work and foundation for our new garage. The excavation was done quickly and cleanly. Couldn't be happier with the results!"</p>
+                            <p class="review-author">— Lisa D.</p>
                         </div>
                         <div class="review-card">
                             <div class="review-stars">
@@ -599,8 +558,8 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"From start to finish, Grenga Development delivered exceptional service. Our outdoor kitchen is exactly what we envisioned. Worth every penny!"</p>
-                            <p class="review-author">— David R.</p>
+                            <p class="review-text">"Beautiful patio with exposed aggregate finish. The team was on time every day and left the site spotless. Highly recommend for any concrete work!"</p>
+                            <p class="review-author">— Mark P.</p>
                         </div>
                         <div class="review-card">
                             <div class="review-stars">
@@ -610,8 +569,8 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"Best construction company in Rhode Island! They built us a stunning pergola and fire pit area. The crew was respectful and cleaned up every day."</p>
-                            <p class="review-author">— Jennifer L.</p>
+                            <p class="review-text">"Best concrete company in Rhode Island! They built a retaining wall in our backyard that solved our drainage issues. Fast, professional, and fairly priced."</p>
+                            <p class="review-author">— Nicole B.</p>
                         </div>
                         <div class="review-card">
                             <div class="review-stars">
@@ -621,8 +580,8 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"We've used them twice now and both times the results were fantastic. Fair pricing, quality materials, and true craftsmanship. Can't say enough good things!"</p>
-                            <p class="review-author">— Robert K.</p>
+                            <p class="review-text">"Used Grenga for our walkway and snow removal services. The concrete work is top notch and they're always reliable when it snows. Great company to work with!"</p>
+                            <p class="review-author">— Chris V.</p>
                         </div>
                     </div>
                 </div>
@@ -639,9 +598,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h3 class="footer-brand">PARENTEAU</h3>
-                    <p class="footer-subtitle">Property Development</p>
-                    <p>Professional property development services throughout Rhode Island. Quality craftsmanship and exceptional results.</p>
+                    <h3 class="footer-brand">GRENGA DEVELOPMENT</h3>
+                    <p class="footer-subtitle">Concrete Services</p>
+                    <p>Professional concrete services throughout Rhode Island. Quality craftsmanship and exceptional results.</p>
                 </div>
 
                 <div class="col-lg-4 mb-4 mb-lg-0">
@@ -650,18 +609,17 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#questionnaire">Get Estimate</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4">
                     <h4>Connect With Us</h4>
                     <div class="social-links mb-3">
-                        <a href="https://www.facebook.com/profile.php?id=61553196262887" target="_blank" class="social-link">
+                        <a href="https://www.facebook.com/share/17t9DjvqfR/?mibextid=wwXIfr" target="_blank" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/parenteaupropertydevelopment" target="_blank" class="social-link">
+                        <a href="https://www.instagram.com/grenga_development?igsh=MWs4MWk2bzVlbGV4OQ==" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>

@@ -258,9 +258,17 @@ console.log('Contact: (401) 302-6909');
 // QUESTIONNAIRE FUNCTIONALITY
 // =====================
 
-let currentStep = 1;
+let currentStep = 0;
 const totalSteps = 5;
 const questionnaireData = {};
+
+// Start questionnaire from welcome page
+function startQuestionnaire() {
+    document.querySelector('.question-step[data-step="0"]').classList.remove('active');
+    document.querySelector('.question-step[data-step="1"]').classList.add('active');
+    document.querySelector('.progress-step[data-step="1"]').classList.add('active');
+    currentStep = 1;
+}
 
 // Initialize questionnaire
 document.addEventListener('DOMContentLoaded', function() {
@@ -272,6 +280,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Services that need finish question
+const finishServices = ['patio', 'walkway'];
+let showFinishQuestion = false;
+let showDrivewayMaterial = false;
+let drivewayMaterial = null;
 
 // Select an option and auto-advance
 function selectOption(btn) {
@@ -298,6 +312,28 @@ function selectOption(btn) {
 
     // Store the value
     questionnaireData[`step${stepNum}`] = value;
+
+    // Check if step 1 and needs special questions
+    if (stepNum === '1' && value === 'driveway') {
+        showDrivewayMaterial = true;
+        showFinishQuestion = false;
+    } else if (stepNum === '1' && finishServices.includes(value)) {
+        showFinishQuestion = true;
+        showDrivewayMaterial = false;
+    } else if (stepNum === '1') {
+        showFinishQuestion = false;
+        showDrivewayMaterial = false;
+    }
+
+    // Check if step 1a (driveway material) and concrete selected
+    if (stepNum === '1a') {
+        drivewayMaterial = value;
+        if (value === 'concrete') {
+            showFinishQuestion = true;
+        } else {
+            showFinishQuestion = false;
+        }
+    }
 
     // Auto-advance to next step after short delay
     setTimeout(() => {
@@ -341,6 +377,81 @@ function submitOther() {
 
 // Go to next step
 function nextStep() {
+    // Get current step element
+    const currentStepEl = document.querySelector(`.question-step[data-step="${currentStep}"]`);
+
+    // Check if we're on step 1 and need to show driveway material question
+    if (currentStep === 1 && showDrivewayMaterial) {
+        // Hide step 1
+        currentStepEl.classList.remove('active');
+
+        // Show step 1a (driveway material question)
+        document.querySelector('.question-step[data-step="1a"]').classList.add('active');
+
+        // Update progress
+        document.querySelector('.progress-step[data-step="1"]').classList.add('completed');
+        const progressLines = document.querySelectorAll('.progress-line');
+        if (progressLines.length > 0) {
+            progressLines[0].classList.add('active');
+        }
+
+        // Set current step
+        currentStep = '1a';
+
+        // Show back button
+        document.querySelector('.back-btn').style.display = 'inline-flex';
+        return;
+    }
+
+    // Check if we're on step 1 and need to show finish question (for patio/walkway)
+    if (currentStep === 1 && showFinishQuestion) {
+        // Hide step 1
+        currentStepEl.classList.remove('active');
+
+        // Show step 1b (finish question)
+        document.querySelector('.question-step[data-step="1b"]').classList.add('active');
+
+        // Update progress
+        document.querySelector('.progress-step[data-step="1"]').classList.add('completed');
+        const progressLines = document.querySelectorAll('.progress-line');
+        if (progressLines.length > 0) {
+            progressLines[0].classList.add('active');
+        }
+
+        // Set flag so we don't show it again
+        currentStep = '1b';
+
+        // Show back button
+        document.querySelector('.back-btn').style.display = 'inline-flex';
+        return;
+    }
+
+    // If we're on step 1a (driveway material), check if concrete to show finish question
+    if (currentStep === '1a') {
+        document.querySelector('.question-step[data-step="1a"]').classList.remove('active');
+
+        if (showFinishQuestion) {
+            // Show finish question for concrete driveway
+            document.querySelector('.question-step[data-step="1b"]').classList.add('active');
+            currentStep = '1b';
+        } else {
+            // Asphalt - skip to step 2
+            currentStep = 2;
+            document.querySelector(`.question-step[data-step="${currentStep}"]`).classList.add('active');
+            document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.add('active');
+        }
+        return;
+    }
+
+    // If we're on step 1b, go to step 2
+    if (currentStep === '1b') {
+        document.querySelector('.question-step[data-step="1b"]').classList.remove('active');
+        currentStep = 2;
+        document.querySelector(`.question-step[data-step="${currentStep}"]`).classList.add('active');
+        document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.add('active');
+        return;
+    }
+
     if (currentStep < totalSteps) {
         // Hide current step
         document.querySelector(`.question-step[data-step="${currentStep}"]`).classList.remove('active');
@@ -370,6 +481,62 @@ function nextStep() {
 
 // Go to previous step
 function prevStep() {
+    // If on step 1a, go back to step 1
+    if (currentStep === '1a') {
+        document.querySelector('.question-step[data-step="1a"]').classList.remove('active');
+        currentStep = 1;
+        document.querySelector('.question-step[data-step="1"]').classList.add('active');
+        document.querySelector('.progress-step[data-step="1"]').classList.remove('completed');
+        const progressLines = document.querySelectorAll('.progress-line');
+        if (progressLines.length > 0) {
+            progressLines[0].classList.remove('active');
+        }
+        document.querySelector('.back-btn').style.display = 'none';
+        showDrivewayMaterial = false;
+        return;
+    }
+
+    // If on step 1b and came from driveway material, go back to 1a
+    if (currentStep === '1b' && showDrivewayMaterial) {
+        document.querySelector('.question-step[data-step="1b"]').classList.remove('active');
+        currentStep = '1a';
+        document.querySelector('.question-step[data-step="1a"]').classList.add('active');
+        showFinishQuestion = false;
+        return;
+    }
+
+    // If on step 1b (from patio/walkway), go back to step 1
+    if (currentStep === '1b') {
+        document.querySelector('.question-step[data-step="1b"]').classList.remove('active');
+        currentStep = 1;
+        document.querySelector('.question-step[data-step="1"]').classList.add('active');
+        document.querySelector('.progress-step[data-step="1"]').classList.remove('completed');
+        const progressLines = document.querySelectorAll('.progress-line');
+        if (progressLines.length > 0) {
+            progressLines[0].classList.remove('active');
+        }
+        document.querySelector('.back-btn').style.display = 'none';
+        return;
+    }
+
+    // If on step 2 and came from finish question, go back to 1b
+    if (currentStep === 2 && showFinishQuestion) {
+        document.querySelector('.question-step[data-step="2"]').classList.remove('active');
+        document.querySelector('.progress-step[data-step="2"]').classList.remove('active');
+        currentStep = '1b';
+        document.querySelector('.question-step[data-step="1b"]').classList.add('active');
+        return;
+    }
+
+    // If on step 2 and came from asphalt driveway, go back to 1a
+    if (currentStep === 2 && showDrivewayMaterial && !showFinishQuestion) {
+        document.querySelector('.question-step[data-step="2"]').classList.remove('active');
+        document.querySelector('.progress-step[data-step="2"]').classList.remove('active');
+        currentStep = '1a';
+        document.querySelector('.question-step[data-step="1a"]').classList.add('active');
+        return;
+    }
+
     if (currentStep > 1) {
         // Hide current step
         document.querySelector(`.question-step[data-step="${currentStep}"]`).classList.remove('active');
