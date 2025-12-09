@@ -609,6 +609,20 @@
             document.addEventListener('scroll', playVideo, { once: true });
             document.addEventListener('click', playVideo, { once: true });
         }
+
+        // Navbar scroll - transparent until past hero section
+        var navbar = document.querySelector('.navbar');
+        var heroSection = document.querySelector('.hero-section');
+        window.addEventListener('scroll', function() {
+            if (heroSection && navbar) {
+                var heroBottom = heroSection.offsetHeight;
+                if (window.scrollY > heroBottom - 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
     </script>
 </body>
 </html>
