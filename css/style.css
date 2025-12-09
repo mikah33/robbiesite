@@ -802,20 +802,6 @@ img {
     will-change: transform;
 }
 
-.hero-poster-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-poster-img.hidden {
-    display: none;
-}
 
 /* Hide video controls and play button on mobile */
 .hero-video::-webkit-media-controls {
