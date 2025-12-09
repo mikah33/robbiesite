@@ -618,6 +618,10 @@ function submitQuestionnaire() {
     const timeline = timelineLabels[questionnaireData.step3] || questionnaireData.step3;
     const budget = budgetLabels[questionnaireData.step4] || questionnaireData.step4;
 
+    // Get finish type and driveway material if applicable
+    const finishType = questionnaireData.step1b || 'N/A';
+    const drivewayMaterialValue = questionnaireData.step1a || 'N/A';
+
     // Send to webhook
     const webhookData = {
         name: name,
@@ -628,6 +632,8 @@ function submitQuestionnaire() {
         propertyType: propertyType,
         timeline: timeline,
         budget: budget,
+        finishType: finishType,
+        drivewayMaterial: drivewayMaterialValue,
         submittedAt: new Date().toISOString()
     };
 
