@@ -593,14 +593,22 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
     <script>
-        // Play video on any interaction
-        function playVideo() {
-            var video = document.getElementById('heroVideo');
-            if (video) video.play();
+        // Try to autoplay video immediately
+        var video = document.getElementById('heroVideo');
+        if (video) {
+            // Attempt 1: Direct play on load
+            video.play().catch(function(){});
+
+            // Attempt 2: Play after short delay
+            setTimeout(function() { video.play().catch(function(){}); }, 100);
+            setTimeout(function() { video.play().catch(function(){}); }, 500);
+
+            // Fallback: Play on any interaction
+            function playVideo() { video.play().catch(function(){}); }
+            document.addEventListener('touchstart', playVideo, { once: true });
+            document.addEventListener('scroll', playVideo, { once: true });
+            document.addEventListener('click', playVideo, { once: true });
         }
-        document.addEventListener('touchstart', playVideo, { once: true });
-        document.addEventListener('scroll', playVideo, { once: true });
-        document.addEventListener('click', playVideo, { once: true });
     </script>
 </body>
 </html>
