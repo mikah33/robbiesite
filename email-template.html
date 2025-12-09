@@ -1,187 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Lead - Grenga Development</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: Georgia, 'Times New Roman', serif; background-color: #f5f5f5;">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f5f5f5; padding: 20px 0;">
-        <tr>
-            <td align="center">
-                <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f5f5;">
+<tr>
+<td align="center" valign="top" style="padding:20px 0;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:700px;background-color:#ffffff;">
 
-                    <!-- Header -->
-                    <tr>
-                        <td style="background-color: #1a1a1a; padding: 30px 40px; text-align: center;">
-                            <img src="https://grengadevelopment.com/images/logo.png" alt="Grenga Development" style="height: 60px; width: auto; margin-bottom: 15px;">
-                            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 400; letter-spacing: 2px;">GRENGA DEVELOPMENT</h1>
-                            <p style="color: #F96014; margin: 5px 0 0 0; font-size: 14px; letter-spacing: 1px;">Concrete and Site Services</p>
-                        </td>
-                    </tr>
+<tr>
+<td align="center" style="background-color:#1a1a1a;padding:30px;">
+<img src="https://grengadevelopment.com/images/logo.png" width="60" style="display:block;margin-bottom:15px;">
+<span style="font-size:24px;color:#ffffff;font-family:Georgia,serif;">GRENGA DEVELOPMENT</span><br>
+<span style="font-size:14px;color:#F96014;font-family:Georgia,serif;">Concrete and Site Services</span>
+</td>
+</tr>
 
-                    <!-- Alert Banner -->
-                    <tr>
-                        <td style="background-color: #F96014; padding: 15px 40px; text-align: center;">
-                            <h2 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">New Project Inquiry</h2>
-                        </td>
-                    </tr>
+<tr>
+<td align="center" style="background-color:#F96014;padding:15px;">
+<span style="font-size:20px;color:#ffffff;font-family:Georgia,serif;font-weight:bold;">NEW PROJECT INQUIRY</span>
+</td>
+</tr>
 
-                    <!-- Main Content -->
-                    <tr>
-                        <td style="padding: 40px;">
+<tr>
+<td align="center" style="padding:30px;">
 
-                            <!-- Contact Information Section -->
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 30px;">
-                                <tr>
-                                    <td style="border-bottom: 2px solid #F96014; padding-bottom: 10px; margin-bottom: 20px;">
-                                        <h3 style="color: #1a1a1a; margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">Contact Information</h3>
-                                    </td>
-                                </tr>
-                            </table>
+<p style="font-size:16px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;border-bottom:2px solid #F96014;padding-bottom:10px;text-align:center;">CONTACT INFORMATION</p>
 
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 30px;">
-                                <tr>
-                                    <td width="40" valign="top" style="padding: 10px 0;">
-                                        <div style="width: 35px; height: 35px; background-color: #F96014; border-radius: 50%; text-align: center; line-height: 35px; color: #ffffff; font-size: 14px;">&#128100;</div>
-                                    </td>
-                                    <td style="padding: 10px 0 10px 15px;">
-                                        <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Name</p>
-                                        <p style="margin: 5px 0 0 0; color: #1a1a1a; font-size: 18px; font-weight: 600;">{{ $json.body.name }}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="40" valign="top" style="padding: 10px 0;">
-                                        <div style="width: 35px; height: 35px; background-color: #F96014; border-radius: 50%; text-align: center; line-height: 35px; color: #ffffff; font-size: 14px;">&#128222;</div>
-                                    </td>
-                                    <td style="padding: 10px 0 10px 15px;">
-                                        <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Phone</p>
-                                        <p style="margin: 5px 0 0 0; color: #1a1a1a; font-size: 18px; font-weight: 600;">
-                                            <a href="tel:{{ $json.body.phone }}" style="color: #F96014; text-decoration: none;">{{ $json.body.phone }}</a>
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="40" valign="top" style="padding: 10px 0;">
-                                        <div style="width: 35px; height: 35px; background-color: #F96014; border-radius: 50%; text-align: center; line-height: 35px; color: #ffffff; font-size: 14px;">&#9993;</div>
-                                    </td>
-                                    <td style="padding: 10px 0 10px 15px;">
-                                        <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Email</p>
-                                        <p style="margin: 5px 0 0 0; color: #1a1a1a; font-size: 18px; font-weight: 600;">
-                                            <a href="mailto:{{ $json.body.email }}" style="color: #F96014; text-decoration: none;">{{ $json.body.email }}</a>
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="40" valign="top" style="padding: 10px 0;">
-                                        <div style="width: 35px; height: 35px; background-color: #F96014; border-radius: 50%; text-align: center; line-height: 35px; color: #ffffff; font-size: 14px;">&#128205;</div>
-                                    </td>
-                                    <td style="padding: 10px 0 10px 15px;">
-                                        <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Address</p>
-                                        <p style="margin: 5px 0 0 0; color: #1a1a1a; font-size: 18px; font-weight: 600;">{{ $json.body.address }}</p>
-                                    </td>
-                                </tr>
-                            </table>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">NAME</p>
+<p style="font-size:20px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.name }}</p>
 
-                            <!-- Project Details Section -->
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 20px;">
-                                <tr>
-                                    <td style="border-bottom: 2px solid #F96014; padding-bottom: 10px; margin-bottom: 20px;">
-                                        <h3 style="color: #1a1a1a; margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">Project Details</h3>
-                                    </td>
-                                </tr>
-                            </table>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">PHONE</p>
+<p style="font-size:20px;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;"><a href="tel:{{ $json.body.phone }}" style="color:#F96014;text-decoration:none;">{{ $json.body.phone }}</a></p>
 
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f9f9f9; border-radius: 8px; overflow: hidden;">
-                                <tr>
-                                    <td style="padding: 20px; border-bottom: 1px solid #eee;">
-                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                            <tr>
-                                                <td width="50%" style="padding: 10px;">
-                                                    <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Project Type</p>
-                                                    <p style="margin: 8px 0 0 0; color: #1a1a1a; font-size: 16px; font-weight: 600;">{{ $json.body.projectType }}</p>
-                                                </td>
-                                                <td width="50%" style="padding: 10px;">
-                                                    <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Property Type</p>
-                                                    <p style="margin: 8px 0 0 0; color: #1a1a1a; font-size: 16px; font-weight: 600;">{{ $json.body.propertyType }}</p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 20px; border-bottom: 1px solid #eee;">
-                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                            <tr>
-                                                <td width="50%" style="padding: 10px;">
-                                                    <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Timeline</p>
-                                                    <p style="margin: 8px 0 0 0; color: #1a1a1a; font-size: 16px; font-weight: 600;">{{ $json.body.timeline }}</p>
-                                                </td>
-                                                <td width="50%" style="padding: 10px;">
-                                                    <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Budget</p>
-                                                    <p style="margin: 8px 0 0 0; color: #F96014; font-size: 16px; font-weight: 700;">{{ $json.body.budget }}</p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 20px;">
-                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                            <tr>
-                                                <td width="50%" style="padding: 10px;">
-                                                    <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Finish Type</p>
-                                                    <p style="margin: 8px 0 0 0; color: #1a1a1a; font-size: 16px; font-weight: 600;">{{ $json.body.finishType }}</p>
-                                                </td>
-                                                <td width="50%" style="padding: 10px;">
-                                                    <p style="margin: 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Driveway Material</p>
-                                                    <p style="margin: 8px 0 0 0; color: #1a1a1a; font-size: 16px; font-weight: 600;">{{ $json.body.drivewayMaterial }}</p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">EMAIL</p>
+<p style="font-size:18px;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;"><a href="mailto:{{ $json.body.email }}" style="color:#F96014;text-decoration:none;">{{ $json.body.email }}</a></p>
 
-                            <!-- Submission Time -->
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 30px;">
-                                <tr>
-                                    <td style="text-align: center; padding: 15px; background-color: #f0f0f0; border-radius: 8px;">
-                                        <p style="margin: 0; color: #666; font-size: 12px;">Submitted on</p>
-                                        <p style="margin: 5px 0 0 0; color: #1a1a1a; font-size: 14px; font-weight: 600;">{{ $json.body.submittedAt }}</p>
-                                    </td>
-                                </tr>
-                            </table>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">ADDRESS</p>
+<p style="font-size:18px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.address }}</p>
 
-                            <!-- CTA Button -->
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 30px;">
-                                <tr>
-                                    <td align="center">
-                                        <a href="tel:{{ $json.body.phone }}" style="display: inline-block; background-color: #F96014; color: #ffffff; text-decoration: none; padding: 15px 40px; border-radius: 50px; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Call Customer Now</a>
-                                    </td>
-                                </tr>
-                            </table>
+<p style="font-size:16px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;border-bottom:2px solid #F96014;padding-bottom:10px;margin-top:30px;text-align:center;">PROJECT DETAILS</p>
 
-                        </td>
-                    </tr>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">PROJECT TYPE</p>
+<p style="font-size:18px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.projectType }}</p>
 
-                    <!-- Footer -->
-                    <tr>
-                        <td style="background-color: #1a1a1a; padding: 30px 40px; text-align: center;">
-                            <p style="color: #ffffff; margin: 0 0 10px 0; font-size: 16px; font-weight: 600;">GRENGA DEVELOPMENT</p>
-                            <p style="color: #999; margin: 0 0 15px 0; font-size: 14px;">Concrete and Site Services</p>
-                            <p style="margin: 0;">
-                                <a href="tel:4013026909" style="color: #F96014; text-decoration: none; font-size: 18px; font-weight: 600;">(401) 302-6909</a>
-                            </p>
-                            <p style="color: #666; margin: 20px 0 0 0; font-size: 12px;">Serving All of Rhode Island</p>
-                            <hr style="border: none; border-top: 1px solid #333; margin: 20px 0;">
-                            <p style="color: #666; margin: 0; font-size: 11px;">&copy; 2025 Elevated Systems. All Rights Reserved.</p>
-                        </td>
-                    </tr>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">PROPERTY TYPE</p>
+<p style="font-size:18px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.propertyType }}</p>
 
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">TIMELINE</p>
+<p style="font-size:18px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.timeline }}</p>
+
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">BUDGET</p>
+<p style="font-size:18px;color:#F96014;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.budget }}</p>
+
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">FINISH TYPE</p>
+<p style="font-size:18px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.finishType }}</p>
+
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:20px 0 5px 0;text-align:center;">DRIVEWAY MATERIAL</p>
+<p style="font-size:18px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.drivewayMaterial }}</p>
+
+<p style="font-size:12px;color:#666666;font-family:Arial,sans-serif;margin:30px 0 5px 0;text-align:center;">SUBMITTED</p>
+<p style="font-size:14px;color:#1a1a1a;font-family:Georgia,serif;font-weight:bold;margin:0;text-align:center;">{{ $json.body.submittedAt }}</p>
+
+<p style="margin:30px 0 0 0;text-align:center;"><a href="tel:{{ $json.body.phone }}" style="background-color:#F96014;color:#ffffff;padding:15px 40px;font-family:Georgia,serif;font-size:16px;font-weight:bold;text-decoration:none;border-radius:50px;display:inline-block;">CALL CUSTOMER NOW</a></p>
+
+</td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#1a1a1a;padding:30px;">
+<span style="font-size:16px;color:#ffffff;font-family:Georgia,serif;font-weight:bold;">GRENGA DEVELOPMENT</span><br>
+<span style="font-size:14px;color:#999999;font-family:Georgia,serif;">Concrete and Site Services</span><br><br>
+<a href="tel:4013026909" style="font-size:18px;color:#F96014;font-family:Georgia,serif;font-weight:bold;text-decoration:none;">(401) 302-6909</a><br>
+<span style="font-size:12px;color:#666666;font-family:Arial,sans-serif;">Serving All of Rhode Island</span><br><br>
+<span style="font-size:11px;color:#666666;font-family:Arial,sans-serif;">&copy; 2025 Elevated Systems. All Rights Reserved.</span>
+</td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>

@@ -997,13 +997,18 @@ video::-webkit-media-controls-panel {
     transition: all 0.3s ease;
 }
 
-.service-card.has-bg {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.service-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
 }
 
-.service-card.has-bg::before {
+.service-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1012,6 +1017,7 @@ video::-webkit-media-controls-panel {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
+    z-index: 1;
 }
 
 .service-card:hover::before {
