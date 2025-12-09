@@ -72,6 +72,7 @@
         <video class="hero-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload="metadata" poster="images/hero-poster.jpg" id="heroVideo">
             <source src="videos/hero-video.mp4" type="video/mp4">
         </video>
+        <img src="images/hero-poster.jpg" alt="" class="hero-poster-img" id="heroPoster">
         <div class="hero-overlay"></div>
         <div class="video-touch-layer" id="videoTouchLayer"></div>
         <div class="container h-100">
@@ -592,5 +593,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Play video on any interaction and hide poster
+        function playVideo() {
+            var video = document.getElementById('heroVideo');
+            var poster = document.getElementById('heroPoster');
+            if (video) {
+                video.play().then(function() {
+                    if (poster) poster.classList.add('hidden');
+                }).catch(function() {});
+            }
+        }
+        document.addEventListener('touchstart', playVideo, { once: true });
+        document.addEventListener('scroll', playVideo, { once: true });
+        document.addEventListener('click', playVideo, { once: true });
+        // Also hide poster when video plays on desktop
+        var heroVideo = document.getElementById('heroVideo');
+        if (heroVideo) {
+            heroVideo.addEventListener('playing', function() {
+                var poster = document.getElementById('heroPoster');
+                if (poster) poster.classList.add('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
