@@ -380,6 +380,12 @@ img {
     margin-bottom: 1.5rem;
 }
 
+.welcome-logo {
+    height: 100px;
+    width: auto;
+    margin-bottom: 1.5rem;
+}
+
 .start-btn {
     font-size: 1.1rem;
     padding: 1rem 2.5rem;
