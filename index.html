@@ -69,6 +69,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
+        <img src="images/hero-poster.jpg" alt="" class="hero-poster-img" id="heroPoster">
         <video class="hero-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload="metadata" poster="images/hero-poster.jpg" id="heroVideo">
             <source src="videos/hero-video.mp4" type="video/mp4">
         </video>
@@ -592,5 +593,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // iOS video handling - tap poster to play video
+        (function() {
+            var video = document.getElementById('heroVideo');
+            var poster = document.getElementById('heroPoster');
+            var heroSection = document.querySelector('.hero-section');
+
+            if (!video || !poster) return;
+
+            // Check if iOS
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+            if (isIOS) {
+                // On iOS: tap anywhere on hero to play
+                heroSection.addEventListener('click', function() {
+                    video.play().then(function() {
+                        video.classList.add('playing');
+                        poster.classList.add('hidden');
+                    }).catch(function() {});
+                }, { once: true });
+            } else {
+                // On desktop: video autoplays, hide poster
+                video.addEventListener('playing', function() {
+                    poster.classList.add('hidden');
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
