@@ -800,6 +800,12 @@ img {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     will-change: transform;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-video.playing {
+    opacity: 1;
 }
 
 /* Hide video controls and play button on mobile */
