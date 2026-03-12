@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     images.forEach(img => {
         img.addEventListener('error', function() {
             // Fallback placeholder if image fails to load
-            this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect fill="%23f36b24" width="800" height="600"/%3E%3Ctext fill="%23fff" font-family="Arial" font-size="48" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EGrenga Development%3C/text%3E%3C/svg%3E';
+            this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect fill="%23f36b24" width="800" height="600"/%3E%3Ctext fill="%23fff" font-family="Arial" font-size="48" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EGrenga Construction Inc.%3C/text%3E%3C/svg%3E';
         });
     });
 });
@@ -251,7 +251,7 @@ if (reviewsSlider) {
 }
 
 // Console log to confirm script loaded
-console.log('Grenga Development website loaded successfully!');
+console.log('Grenga Construction Inc. website loaded successfully!');
 console.log('Contact: (401) 302-6909');
 
 // =====================
